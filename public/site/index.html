@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard for Study — Guia de Estudos e Programação</title>
+    <meta
+      name="description"
+      content="Resumos organizados, snippets de código, teoria essencial e prática para todas as matérias."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Barra de cookies -->
+    <div class="cookiebar" id="cookiebar">
+      <p class="cookiebar__text">
+        <span data-i18n="cookie.text"></span>
+        <a href="#" data-i18n="cookie.privacy"></a>.
+        <a href="#" data-i18n="cookie.more"></a> |
+        <a href="#" id="cookieAccept" data-i18n="cookie.accept"></a>
+      </p>
+      <button class="iconbtn" id="cookieSettings" aria-label="Configurações de Cookies">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="3.2" />
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.9 19.3a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.7 15a1.7 1.7 0 0 0-1.56-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.7 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.7a1.7 1.7 0 0 0 1-1.56V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.3 9c.24.6.82 1 1.47 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="topnav">
+      <a class="brand" href="#top">
+        <span class="brand__dot"></span>
+        Dashboard for Study
+      </a>
+      <nav class="topnav__right">
+        <label class="sr-only" for="lang">Idioma</label>
+        <select id="lang" class="select">
+          <option value="pt">PT-BR</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+        <button class="avatar" aria-label="Perfil de usuário">NB</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero__content">
+          <h1 data-i18n="hero.title"></h1>
+          <p class="lead" data-i18n="hero.subtitle"></p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#painel">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 15c-1 2-1 4-1 4s2 0 4-1" />
+                <path d="M14.5 4.5C17 2 21 2 21 2s0 4-2.5 6.5L14 13l-3-3z" />
+                <path d="M11 10l-4 1-2 3 4 1 1 4 3-2 1-4" />
+              </svg>
+              <span data-i18n="hero.cta1"></span>
+            </a>
+            <a class="btn btn--ghost" href="#criador">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="11" cy="11" r="6" /><path d="M20 20l-4-4" />
+              </svg>
+              <span data-i18n="hero.cta2"></span>
+            </a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <img src="./img/hero-3d.png" alt="Ilustração 3D com molécula, grafo de nós e tubo de ensaio" width="1024" height="1024" />
+        </div>
+      </section>
+
+      <!-- Painel -->
+      <section class="grid3" id="painel">
+        <!-- Coluna 1 -->
+        <article class="card">
+          <h2 data-i18n="col1.title"></h2>
+          <ul class="subjects" id="subjects"></ul>
+        </article>
+
+        <!-- Coluna 2 -->
+        <article class="card card--cs">
+          <h2 data-i18n="col2.title"></h2>
+          <div class="accordion" id="accordion"></div>
+          <img class="card__art" src="./img/code-3d.png" alt="Ícone 3D de código" width="768" height="768" loading="lazy" />
+          <ul class="links" id="csLinks"></ul>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="card">
+          <h2 data-i18n="col3.title"></h2>
+          <div class="langs" id="langs"></div>
+        </article>
+      </section>
+
+      <!-- Metas -->
+      <section class="goals">
+        <div class="card goals__card">
+          <h2 data-i18n="goals.title"></h2>
+          <div class="goals__body">
+            <div class="donut" id="donut">
+              <svg viewBox="0 0 120 120" width="180" height="180">
+                <circle class="donut__bg" cx="60" cy="60" r="52" />
+                <circle class="donut__fg" id="donutFg" cx="60" cy="60" r="52" />
+              </svg>
+              <div class="donut__label">
+                <strong id="donutPct">85%</strong>
+                <span data-i18n="goals.done"></span>
+              </div>
+              <p class="donut__caption">Overall goals</p>
+            </div>
+            <ul class="checklist" id="checklist"></ul>
+          </div>
+          <img class="goals__pi" src="./img/pi-3d.png" alt="Símbolo Pi em 3D" width="640" height="640" loading="lazy" />
+          <div class="floatcard">
+            <span class="floatcard__box"></span>
+            <span data-i18n="goals.float"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Área do Criador -->
+      <section class="creator" id="criador">
+        <div class="card creator__card" id="creatorLogin">
+          <h2 data-i18n="creator.title"></h2>
+          <form id="creatorForm" class="form">
+            <label for="cTitle" data-i18n="creator.titleField"></label>
+            <input id="cTitle" class="input" type="text" data-i18n-ph="creator.titlePh" />
+            <label for="cPass" data-i18n="creator.password"></label>
+            <input id="cPass" class="input" type="password" placeholder="**********" />
+            <p class="hint" id="creatorHint" data-i18n="creator.hint"></p>
+            <button class="btn btn--primary" type="submit"><span data-i18n="creator.submit"></span></button>
+          </form>
+        </div>
+
+        <div class="creator__panel hidden" id="creatorPanel">
+          <div class="card">
+            <h2 data-i18n="practice.title"></h2>
+            <pre class="code"><code id="codeBlock"></code></pre>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="publish.title"></h2>
+            <label for="pTitle" data-i18n="creator.titleField"></label>
+            <input id="pTitle" class="input" type="text" data-i18n-ph="creator.titlePh" />
+            <div class="toolbar" id="toolbar">
+              <button type="button" data-cmd="bold"><b>B</b></button>
+              <button type="button" data-cmd="italic"><i>I</i></button>
+              <button type="button" data-cmd="underline"><u>U</u></button>
+              <button type="button" data-cmd="formatBlock" data-val="blockquote">&ldquo;&rdquo;</button>
+              <button type="button" data-cmd="insertUnorderedList">&bull;</button>
+              <button type="button" data-cmd="insertOrderedList">1.</button>
+            </div>
+            <div class="editor" id="editor" contenteditable="true"></div>
+            <div class="statusbar">
+              <label class="check"><input type="radio" name="pstate" value="draft" checked /> <span data-i18n="publish.draft"></span></label>
+              <label class="check"><input type="radio" name="pstate" value="published" /> <span data-i18n="publish.published"></span></label>
+              <button class="btn btn--primary" id="publishBtn" type="button">Publish Button</button>
+            </div>
+            <ul class="posts" id="posts"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tópicos em destaque -->
+      <section class="topics">
+        <h2 data-i18n="topics.title"></h2>
+        <div class="topics__grid" id="topics"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__note">
+        <span data-i18n="footer.text"></span>
+        <a href="#" data-i18n="cookie.privacy"></a>. <a href="#" data-i18n="cookie.more"></a>
+      </p>
+      <p class="footer__compliance"><a href="#">(Jolly compliant with AEEense requirements)</a></p>
+      <nav class="footer__links">
+        <a href="#" data-i18n="cookie.privacy"></a>
+        <a href="#" data-i18n="footer.terms"></a>
+        <a href="#" id="footerCookieSettings" data-i18n="footer.cookieSettings"></a>
+      </nav>
+      <p class="footer__copy">© <span id="year"></span> Dashboard for Study</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
