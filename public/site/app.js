@@ -105,6 +105,8 @@
       "footer.terms": "Conditions d'Utilisation",
       "footer.cookieSettings": "Paramètres des Cookies",
       "cookie.saved": "Préférences de cookies enregistrées.",
+      "recent.title": "Publications Récentes",
+      "recent.empty": "Aucune publication pour le moment. Ouvrez l'Espace Créateur via l'icône de clé en haut.",
       "guide": "Guide"
     }
   };
@@ -132,6 +134,7 @@
     lang = langSelect.value;
     localStorage.setItem("dfs.lang", lang);
     applyI18n();
+    if (typeof renderRecent === "function") renderRecent();
   });
 
   /* ---------------- Cookies ---------------- */
