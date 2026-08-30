@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Área do Criador — Dashboard for Study</title>
+    <meta name="description" content="Área do criador: publique, edite e elimine conteúdos do Dashboard for Study." />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topnav">
+      <a class="brand" href="./index.html">
+        <span class="brand__dot"></span>
+        Dashboard for Study
+      </a>
+      <nav class="topnav__right">
+        <a class="btn btn--ghost" href="./index.html" data-i18n="creator.back"></a>
+        <button class="avatar" id="logoutBtn" aria-label="Sair" title="Sair">⎋</button>
+      </nav>
+    </header>
+
+    <main class="creator">
+      <div class="card creator__card" id="creatorLogin">
+        <h1 data-i18n="creator.title"></h1>
+        <form id="creatorForm" class="form">
+          <label for="cTitle" data-i18n="creator.titleField"></label>
+          <input id="cTitle" class="input" type="text" data-i18n-ph="creator.titlePh" />
+          <label for="cPass" data-i18n="creator.password"></label>
+          <input id="cPass" class="input" type="password" placeholder="**********" />
+          <p class="hint" id="creatorHint" data-i18n="creator.hint"></p>
+          <button class="btn btn--primary" type="submit"><span data-i18n="creator.submit"></span></button>
+        </form>
+      </div>
+
+      <div class="creator__panel hidden" id="creatorPanel">
+        <div class="card">
+          <h2 data-i18n="practice.title"></h2>
+          <pre class="code"><code id="codeBlock"></code></pre>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="publish.title"></h2>
+          <label for="pTitle" data-i18n="creator.titleField"></label>
+          <input id="pTitle" class="input" type="text" data-i18n-ph="creator.titlePh" />
+          <div class="toolbar" id="toolbar">
+            <button type="button" data-cmd="bold"><b>B</b></button>
+            <button type="button" data-cmd="italic"><i>I</i></button>
+            <button type="button" data-cmd="underline"><u>U</u></button>
+            <button type="button" data-cmd="formatBlock" data-val="blockquote">&ldquo;&rdquo;</button>
+            <button type="button" data-cmd="insertUnorderedList">&bull;</button>
+            <button type="button" data-cmd="insertOrderedList">1.</button>
+          </div>
+          <div class="editor" id="editor" contenteditable="true"></div>
+          <div class="statusbar">
+            <label class="check"><input type="radio" name="pstate" value="draft" checked /> <span data-i18n="publish.draft"></span></label>
+            <label class="check"><input type="radio" name="pstate" value="published" /> <span data-i18n="publish.published"></span></label>
+            <button class="btn btn--ghost hidden" id="cancelBtn" type="button" data-i18n="publish.cancel"></button>
+            <button class="btn btn--primary" id="publishBtn" type="button" data-i18n="publish.save"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="posts__head">
+            <h2 data-i18n="publish.list"></h2>
+            <button class="btn btn--ghost" id="clearAllBtn" type="button" data-i18n="publish.clearAll"></button>
+          </div>
+          <p class="hint hidden" id="postsEmpty" data-i18n="publish.empty"></p>
+          <ul class="posts" id="posts"></ul>
+        </div>
+      </div>
+    </main>
+
+    <script src="./criador.js"></script>
+  </body>
+</html>
