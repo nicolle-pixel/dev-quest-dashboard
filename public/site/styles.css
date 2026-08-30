@@ -145,7 +145,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px 64px; }
 .accordion__panel { display: none; padding: 0 14px 14px; color: var(--muted); font-size: 0.9rem; }
 .accordion__item.open .accordion__panel { display: block; }
 
-.card--cs .card__art { display: block; width: 130px; margin: 6px auto 10px; animation: float 6s ease-in-out infinite; }
+.card--cs .card__art { display: block; width: 130px; height: 130px; object-fit: contain; margin: 14px auto; animation: float 6s ease-in-out infinite; }
 
 .langs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .lang {
