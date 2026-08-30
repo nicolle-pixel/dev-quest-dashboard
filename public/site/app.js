@@ -35,7 +35,9 @@
       "footer.terms": "Termos de Serviço",
       "footer.cookieSettings": "Configurações de Cookies",
       "cookie.saved": "Preferências de cookies salvas.",
-      "guide": "Guia"
+      "recent.title": "Publicações Recentes",
+    "recent.empty": "Ainda não há publicações. Acesse a Área do Criador pelo ícone de chave no topo.",
+    "guide": "Guia"
     },
     en: {
       "cookie.text": "We use cookies to improve your experience and optimize our services. By continuing, you agree to our",
@@ -68,7 +70,9 @@
       "footer.terms": "Terms of Service",
       "footer.cookieSettings": "Cookie Settings",
       "cookie.saved": "Cookie preferences saved.",
-      "guide": "Guide"
+      "recent.title": "Recent Posts",
+    "recent.empty": "No posts yet. Open the Creator Area with the key icon at the top.",
+    "guide": "Guide"
     },
     fr: {
       "cookie.text": "Nous utilisons des cookies pour améliorer votre expérience et optimiser nos services. En continuant, vous acceptez notre",
@@ -246,101 +250,53 @@
   });
   renderProgress();
 
-  /* ---------------- Área do Criador ---------------- */
-  document.getElementById("creatorForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var pass = document.getElementById("cPass").value;
-    if (pass === "estudo123") {
-      document.getElementById("creatorLogin").classList.add("hidden");
-      document.getElementById("creatorPanel").classList.remove("hidden");
-    } else {
-      document.getElementById("creatorHint").textContent = t("creator.error");
-    }
-  });
-
-  /* ---------------- Código com realce ---------------- */
-  var SAMPLE = [
-    "// Prática do dia: memoização em JavaScript",
-    "function memoize(fn) {",
-    "  const cache = new Map();",
-    "  return function (n) {",
-    "    if (cache.has(n)) return cache.get(n);",
-    "    const value = fn(n);",
-    "    cache.set(n, value);",
-    "    return value;",
-    "  };",
-    "}",
-    "",
-    "const fib = memoize((n) => (n < 2 ? n : fib(n - 1) + fib(n - 2)));",
-    "console.log(fib(40)); // 102334155"
-  ].join("\n");
-
-  function escapeHtml(s) {
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  /* ---------------- Publicações recentes ---------------- */
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
-  var KEYWORDS = /^(function|const|let|var|return|if|else|new|class|for|while|of|in)$/;
-  function highlight(src) {
-    // Tokenização em uma única passagem para evitar realce dentro das próprias tags.
-    var re = /(\/\/[^\n]*)|('[^']*'|"[^"]*"|`[^`]*`)|(\b\d+(?:\.\d+)?\b)|([A-Za-z_$][\w$]*)/g;
-    var out = "";
-    var last = 0;
-    var m;
-    while ((m = re.exec(src)) !== null) {
-      out += escapeHtml(src.slice(last, m.index));
-      var text = escapeHtml(m[0]);
-      if (m[1]) out += '<span class="tok-com">' + text + "</span>";
-      else if (m[2]) out += '<span class="tok-str">' + text + "</span>";
-      else if (m[3]) out += '<span class="tok-num">' + text + "</span>";
-      else if (KEYWORDS.test(m[4])) out += '<span class="tok-key">' + text + "</span>";
-      else if (src.charAt(re.lastIndex) === "(") out += '<span class="tok-fn">' + text + "</span>";
-      else out += text;
-      last = re.lastIndex;
-    }
-    out += escapeHtml(src.slice(last));
-    return out;
-  }
-  document.getElementById("codeBlock").innerHTML = highlight(SAMPLE);
-
-  /* ---------------- Editor rico ---------------- */
-  var editor = document.getElementById("editor");
-  document.getElementById("toolbar").addEventListener("click", function (e) {
-    var btn = e.target.closest("button[data-cmd]");
-    if (!btn) return;
-    editor.focus();
-    document.execCommand(btn.dataset.cmd, false, btn.dataset.val || null);
-  });
-
-  var postsEl = document.getElementById("posts");
   function loadPosts() {
-    return JSON.parse(localStorage.getItem("dfs.posts") || "[]");
+    try {
+      return JSON.parse(localStorage.getItem("dfs.posts") || "[]");
+    } catch (err) {
+      return [];
+    }
   }
-  function renderPosts() {
-    var posts = loadPosts();
-    postsEl.innerHTML = posts
+  function excerpt(html) {
+    var div = document.createElement("div");
+    div.innerHTML = html || "";
+    var text = (div.textContent || "").trim();
+    return text.length > 180 ? text.slice(0, 180) + "…" : text;
+  }
+  function fmtDate(ts) {
+    if (!ts) return "";
+    try {
+      return new Date(ts).toLocaleDateString(lang === "pt" ? "pt-BR" : lang);
+    } catch (err) {
+      return "";
+    }
+  }
+  var recentEl = document.getElementById("recentPosts");
+  var recentEmpty = document.getElementById("recentEmpty");
+  function renderRecent() {
+    var posts = loadPosts().filter(function (p) {
+      return p.state === "published";
+    });
+    recentEmpty.classList.toggle("hidden", posts.length > 0);
+    recentEl.innerHTML = posts
+      .slice(0, 6)
       .map(function (p) {
         return (
-          "<li><strong>" + escapeHtml(p.title) + "</strong>" +
-          '<span class="badge">' + t("publish." + p.state) + "</span>" +
-          "<div>" + p.html + "</div></li>"
+          '<article class="postcard">' +
+          '<h3>' + escapeHtml(p.title) + "</h3>" +
+          '<p class="postcard__meta">' + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
+          '<p class="postcard__text">' + escapeHtml(excerpt(p.html)) + "</p>" +
+          "</article>"
         );
       })
       .join("");
   }
-  document.getElementById("publishBtn").addEventListener("click", function () {
-    var title = document.getElementById("pTitle").value.trim();
-    if (!title) {
-      document.getElementById("pTitle").focus();
-      return;
-    }
-    var state = document.querySelector("input[name='pstate']:checked").value;
-    var posts = loadPosts();
-    posts.unshift({ title: title, html: editor.innerHTML, state: state });
-    localStorage.setItem("dfs.posts", JSON.stringify(posts));
-    document.getElementById("pTitle").value = "";
-    editor.innerHTML = "";
-    renderPosts();
-  });
-  renderPosts();
+  renderRecent();
+  window.addEventListener("storage", renderRecent);
 
   /* ---------------- Tópicos ---------------- */
   var TOPICS = [
@@ -359,4 +315,5 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   applyI18n();
+  renderRecent();
 })();
