@@ -145,7 +145,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px 64px; }
 .accordion__panel { display: none; padding: 0 14px 14px; color: var(--muted); font-size: 0.9rem; }
 .accordion__item.open .accordion__panel { display: block; }
 
-.card--cs .card__art { display: block; width: 130px; margin: 6px auto 10px; animation: float 6s ease-in-out infinite; }
+.card--cs .card__art { display: block; width: 130px; height: 130px; object-fit: contain; margin: 14px auto; animation: float 6s ease-in-out infinite; }
 
 .langs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .lang {
@@ -182,7 +182,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px 64px; }
 .checklist input { width: 18px; height: 18px; accent-color: var(--primary); }
 .checklist input:checked + span { color: var(--muted); text-decoration: line-through; }
 
-.goals__pi { position: absolute; right: 8px; bottom: 0; width: 110px; opacity: 0.9; animation: float 8s ease-in-out infinite; pointer-events: none; }
+.goals__pi { position: absolute; right: 12px; bottom: 12px; width: 96px; height: 96px; object-fit: contain; opacity: 0.9; animation: float 8s ease-in-out infinite; pointer-events: none; }
 .floatcard {
   position: absolute; right: 130px; bottom: 24px;
   display: inline-flex; align-items: center; gap: 8px;
