@@ -278,17 +278,26 @@
   function escapeHtml(s) {
     return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
+  var KEYWORDS = /^(function|const|let|var|return|if|else|new|class|for|while|of|in)$/;
   function highlight(src) {
-    var html = escapeHtml(src);
-    html = html.replace(/(\/\/[^\n]*)/g, '<span class="tok-com">$1</span>');
-    html = html.replace(/('[^']*'|"[^"]*"|`[^`]*`)/g, '<span class="tok-str">$1</span>');
-    html = html.replace(
-      /\b(function|const|let|var|return|if|else|new|class|for|while|of|in)\b/g,
-      '<span class="tok-key">$1</span>'
-    );
-    html = html.replace(/\b(\d+)\b/g, '<span class="tok-num">$1</span>');
-    html = html.replace(/\b([A-Za-z_$][\w$]*)\(/g, '<span class="tok-fn">$1</span>(');
-    return html;
+    // Tokenização em uma única passagem para evitar realce dentro das próprias tags.
+    var re = /(\/\/[^\n]*)|('[^']*'|"[^"]*"|`[^`]*`)|(\b\d+(?:\.\d+)?\b)|([A-Za-z_$][\w$]*)/g;
+    var out = "";
+    var last = 0;
+    var m;
+    while ((m = re.exec(src)) !== null) {
+      out += escapeHtml(src.slice(last, m.index));
+      var text = escapeHtml(m[0]);
+      if (m[1]) out += '<span class="tok-com">' + text + "</span>";
+      else if (m[2]) out += '<span class="tok-str">' + text + "</span>";
+      else if (m[3]) out += '<span class="tok-num">' + text + "</span>";
+      else if (KEYWORDS.test(m[4])) out += '<span class="tok-key">' + text + "</span>";
+      else if (src.charAt(re.lastIndex) === "(") out += '<span class="tok-fn">' + text + "</span>";
+      else out += text;
+      last = re.lastIndex;
+    }
+    out += escapeHtml(src.slice(last));
+    return out;
   }
   document.getElementById("codeBlock").innerHTML = highlight(SAMPLE);
 
