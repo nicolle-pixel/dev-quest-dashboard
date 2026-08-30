@@ -77,11 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dashboard for Study — Guia de Estudos e Programação" },
+      {
+        name: "description",
+        content:
+          "Resumos organizados, snippets de código, teoria essencial e prática para todas as matérias.",
+      },
+      { name: "author", content: "Dashboard for Study" },
+      { property: "og:title", content: "Dashboard for Study — Guia de Estudos e Programação" },
+      {
+        property: "og:description",
+        content: "Resumos, snippets de código e teoria essencial para todas as matérias.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
