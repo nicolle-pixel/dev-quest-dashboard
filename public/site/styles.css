@@ -264,3 +264,51 @@ label { font-size: 0.82rem; color: var(--muted); }
   .cookiebar { flex-direction: column; align-items: flex-start; }
   .langs { grid-template-columns: 1fr; }
 }
+
+/* Chave da Área do Criador */
+.keybtn {
+  display: grid; place-items: center; width: 36px; height: 36px;
+  border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--primary-2);
+}
+.keybtn:hover { background: var(--surface-2); }
+
+/* Busca */
+.search { display: flex; gap: 10px; margin-top: 20px; max-width: 520px; }
+.search__input { flex: 1; }
+.btn--sm { padding: 8px 14px; font-size: 0.85rem; }
+.btn--danger { background: #7f1d3a; color: #fff; }
+
+.results { margin: 8px 0 28px; }
+.results h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.results__info { color: var(--muted); font-size: 0.88rem; }
+.results__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+.result { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+.result h3 { margin: 6px 0 6px; font-size: 0.98rem; }
+.result__group { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary-2); }
+.result__text { margin: 0; font-size: 0.85rem; color: var(--muted); }
+
+/* Resumos nas listas */
+.subjects .summary, .links .summary { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+.links li a { align-items: flex-start; }
+
+/* Publicações recentes */
+.recent { margin-top: 40px; }
+.recent h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.recent__empty { color: var(--muted); font-size: 0.9rem; }
+.recent__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.postcard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.postcard h3 { margin: 0 0 6px; font-size: 1rem; }
+.postcard__meta { margin: 0 0 8px; font-size: 0.75rem; color: var(--primary-2); }
+.postcard__text { margin: 0; font-size: 0.88rem; color: var(--muted); }
+
+/* Lista de posts na área do criador */
+.posts__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.posts__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.posts__actions { margin-left: auto; display: flex; gap: 8px; }
+.posts__date { font-size: 0.75rem; color: var(--muted); }
+
+@media (max-width: 980px) {
+  .results__grid, .recent__grid { grid-template-columns: 1fr; }
+  .search { flex-direction: column; }
+}

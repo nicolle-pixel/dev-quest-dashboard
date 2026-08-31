@@ -78,11 +78,24 @@
               <span data-i18n="hero.cta2"></span>
             </a>
           </div>
+          <form class="search" id="searchForm" role="search">
+            <input class="input search__input" id="searchInput" type="search" data-i18n-ph="search.ph" aria-label="Buscar" />
+            <button class="btn btn--primary" type="submit" data-i18n="search.btn"></button>
+          </form>
         </div>
         <div class="hero__art">
           <img src="./img/hero-3d.png" alt="Ilustração 3D com molécula, grafo de nós e tubo de ensaio" width="1024" height="1024" />
         </div>
       </section>
+
+      <!-- Resultados da busca -->
+      <section class="results hidden" id="searchResults">
+        <h2 data-i18n="search.title"></h2>
+        <p class="results__info" id="searchInfo"></p>
+        <div class="results__grid" id="searchList"></div>
+        <button class="btn btn--ghost btn--sm" type="button" id="searchClear" data-i18n="search.clear"></button>
+      </section>
+
 
       <!-- Painel -->
       <section class="grid3" id="painel">
@@ -121,7 +134,7 @@
                 <strong id="donutPct">85%</strong>
                 <span data-i18n="goals.done"></span>
               </div>
-              <p class="donut__caption">Overall goals</p>
+              <p class="donut__caption" data-i18n="goals.overall"></p>
             </div>
             <ul class="checklist" id="checklist"></ul>
           </div>
@@ -161,6 +174,8 @@
       <p class="footer__copy">© <span id="year"></span> Dashboard for Study</p>
     </footer>
 
+    <script src="./i18n.js"></script>
+    <script src="./data.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
