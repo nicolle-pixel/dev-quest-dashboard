@@ -1,120 +1,23 @@
-/* Dashboard for Study — HTML/CSS/JS puro */
+/* Dashboard for Study — lógica da página inicial (HTML/CSS/JS puro) */
 (function () {
   "use strict";
 
-  /* ---------------- i18n ---------------- */
-  var I18N = {
-    pt: {
-      "cookie.text": "Usamos cookies para melhorar sua experiência e otimizar nossos serviços. Ao continuar, você concorda com nossa",
-      "cookie.privacy": "Política de Privacidade",
-      "cookie.more": "Saiba Mais",
-      "cookie.accept": "Aceitar",
-      "hero.title": "DOMINE SEU FUTURO: GUIA COMPLETO DE ESTUDOS E PROGRAMAÇÃO",
-      "hero.subtitle": "Resumos organizados, snippets de código, teoria essencial e prática para todas as matérias.",
-      "hero.cta1": "Comece a Aprender",
-      "hero.cta2": "Crie seu Guia",
-      "col1.title": "Matérias Fundamentais",
-      "col2.title": "Ciência da Computação",
-      "col3.title": "Linguagens de Programação",
-      "goals.title": "Suas Metas",
-      "goals.done": "concluído",
-      "goals.float": "Lista de tarefas",
-      "creator.title": "Área do Criador - Autenticação Necessária",
-      "creator.titleField": "Title Field",
-      "creator.titlePh": "Digite o Título",
-      "creator.password": "Password",
-      "creator.submit": "Acessar Painel",
-      "creator.hint": "Demonstração: use a senha estudo123",
-      "creator.error": "Senha incorreta. Tente novamente.",
-      "practice.title": "Prática do Dia",
-      "publish.title": "Formulário de Publicação",
-      "publish.draft": "Rascunho",
-      "publish.published": "Publicado",
-      "topics.title": "Tópicos em Destaque",
-      "footer.text": "Usamos cookies para melhorar a experiência e otimizar nossos serviços. Ao continuar, você concorda com nossa",
-      "footer.terms": "Termos de Serviço",
-      "footer.cookieSettings": "Configurações de Cookies",
-      "cookie.saved": "Preferências de cookies salvas.",
-      "recent.title": "Publicações Recentes",
-    "recent.empty": "Ainda não há publicações. Acesse a Área do Criador pelo ícone de chave no topo.",
-    "guide": "Guia"
-    },
-    en: {
-      "cookie.text": "We use cookies to improve your experience and optimize our services. By continuing, you agree to our",
-      "cookie.privacy": "Privacy Policy",
-      "cookie.more": "Learn More",
-      "cookie.accept": "Accept",
-      "hero.title": "MASTER YOUR FUTURE: COMPLETE STUDY AND PROGRAMMING GUIDE",
-      "hero.subtitle": "Organized summaries, code snippets, essential theory and practice for every subject.",
-      "hero.cta1": "Start Learning",
-      "hero.cta2": "Build your Guide",
-      "col1.title": "Core Subjects",
-      "col2.title": "Computer Science",
-      "col3.title": "Programming Languages",
-      "goals.title": "Your Goals",
-      "goals.done": "completed",
-      "goals.float": "To-do list",
-      "creator.title": "Creator Area - Authentication Required",
-      "creator.titleField": "Title Field",
-      "creator.titlePh": "Enter the Title",
-      "creator.password": "Password",
-      "creator.submit": "Access Dashboard",
-      "creator.hint": "Demo: use the password estudo123",
-      "creator.error": "Wrong password. Try again.",
-      "practice.title": "Practice of the Day",
-      "publish.title": "Publishing Form",
-      "publish.draft": "Draft",
-      "publish.published": "Published",
-      "topics.title": "Featured Topics",
-      "footer.text": "We use cookies to improve the experience and optimize our services. By continuing, you agree to our",
-      "footer.terms": "Terms of Service",
-      "footer.cookieSettings": "Cookie Settings",
-      "cookie.saved": "Cookie preferences saved.",
-      "recent.title": "Recent Posts",
-    "recent.empty": "No posts yet. Open the Creator Area with the key icon at the top.",
-    "guide": "Guide"
-    },
-    fr: {
-      "cookie.text": "Nous utilisons des cookies pour améliorer votre expérience et optimiser nos services. En continuant, vous acceptez notre",
-      "cookie.privacy": "Politique de Confidentialité",
-      "cookie.more": "En savoir plus",
-      "cookie.accept": "Accepter",
-      "hero.title": "MAÎTRISEZ VOTRE AVENIR : GUIDE COMPLET D'ÉTUDES ET DE PROGRAMMATION",
-      "hero.subtitle": "Résumés organisés, extraits de code, théorie essentielle et pratique pour toutes les matières.",
-      "hero.cta1": "Commencer à apprendre",
-      "hero.cta2": "Créez votre guide",
-      "col1.title": "Matières Fondamentales",
-      "col2.title": "Informatique",
-      "col3.title": "Langages de Programmation",
-      "goals.title": "Vos Objectifs",
-      "goals.done": "terminé",
-      "goals.float": "Liste de tâches",
-      "creator.title": "Espace Créateur - Authentification Requise",
-      "creator.titleField": "Title Field",
-      "creator.titlePh": "Saisissez le titre",
-      "creator.password": "Password",
-      "creator.submit": "Accéder au tableau",
-      "creator.hint": "Démo : utilisez le mot de passe estudo123",
-      "creator.error": "Mot de passe incorrect. Réessayez.",
-      "practice.title": "Pratique du Jour",
-      "publish.title": "Formulaire de Publication",
-      "publish.draft": "Brouillon",
-      "publish.published": "Publié",
-      "topics.title": "Sujets en Vedette",
-      "footer.text": "Nous utilisons des cookies pour améliorer l'expérience et optimiser nos services. En continuant, vous acceptez notre",
-      "footer.terms": "Conditions d'Utilisation",
-      "footer.cookieSettings": "Paramètres des Cookies",
-      "cookie.saved": "Préférences de cookies enregistrées.",
-      "recent.title": "Publications Récentes",
-      "recent.empty": "Aucune publication pour le moment. Ouvrez l'Espace Créateur via l'icône de clé en haut.",
-      "guide": "Guide"
-    }
-  };
+  var I18N = window.DFS_I18N;
+  var DATA = window.DFS_DATA;
+  var LANGS = window.DFS_LANGS;
 
   var lang = localStorage.getItem("dfs.lang") || "pt";
   function t(key) {
     return (I18N[lang] && I18N[lang][key]) || I18N.pt[key] || key;
   }
+  function content() {
+    return DATA[lang] || DATA.pt;
+  }
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  /* ---------------- i18n ---------------- */
   function applyI18n() {
     document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -133,8 +36,7 @@
   langSelect.addEventListener("change", function () {
     lang = langSelect.value;
     localStorage.setItem("dfs.lang", lang);
-    applyI18n();
-    if (typeof renderRecent === "function") renderRecent();
+    renderAll();
   });
 
   /* ---------------- Cookies ---------------- */
@@ -157,93 +59,88 @@
     cookieSettings();
   });
 
-  /* ---------------- Matérias ---------------- */
-  var SUBJECTS = [
-    { icon: "∑", name: "Matemática", tags: "Álgebra | Geometria" },
-    { icon: "⚛", name: "Física", tags: "Geometria | Física" },
-    { icon: "🧪", name: "Química", tags: "Biologia | Química" },
-    { icon: "🧬", name: "Biologia", tags: "Biologia | História" },
-    { icon: "🏛", name: "História", tags: "História | História" },
-    { icon: "📚", name: "Literatura", tags: "Literatura | Literatura" }
-  ];
-  document.getElementById("subjects").innerHTML = SUBJECTS.map(function (s) {
-    return (
-      '<li><a href="#"><span class="ico">' + s.icon + "</span>" +
-      '<span><span class="name">' + s.name + "</span>" +
-      '<span class="tags">' + s.tags + "</span></span>" +
-      '<span class="arrow">›</span></a></li>'
-    );
-  }).join("");
+  /* ---------------- Painel ---------------- */
+  function renderSubjects() {
+    document.getElementById("subjects").innerHTML = content()
+      .subjects.map(function (s) {
+        return (
+          '<li><a href="#" title="' + escapeHtml(s.summary) + '"><span class="ico">' + s.icon + "</span>" +
+          '<span><span class="name">' + escapeHtml(s.name) + "</span>" +
+          '<span class="tags">' + escapeHtml(s.tags) + "</span>" +
+          '<span class="summary">' + escapeHtml(s.summary) + "</span></span>" +
+          '<span class="arrow">›</span></a></li>'
+        );
+      })
+      .join("");
+  }
 
-  /* ---------------- Accordion CS ---------------- */
-  var ACC = [
-    { title: "Fundamentos", body: "Representação de dados, arquitetura de computadores, complexidade e abstração." },
-    { title: "Lógica", body: "Proposições, tabelas-verdade, álgebra booleana e provas por indução." },
-    { title: "Algoritmos", body: "Ordenação, busca, recursão, programação dinâmica e algoritmos gulosos." }
-  ];
   var accEl = document.getElementById("accordion");
-  accEl.innerHTML = ACC.map(function (a, i) {
-    return (
-      '<div class="accordion__item' + (i === 0 ? " open" : "") + '">' +
-      '<button class="accordion__btn" type="button">' + a.title + '<span class="plus">+</span></button>' +
-      '<div class="accordion__panel">' + a.body + "</div></div>"
-    );
-  }).join("");
+  function renderAccordion() {
+    accEl.innerHTML = content()
+      .accordion.map(function (a, i) {
+        return (
+          '<div class="accordion__item' + (i === 0 ? " open" : "") + '">' +
+          '<button class="accordion__btn" type="button">' + escapeHtml(a.title) + '<span class="plus">+</span></button>' +
+          '<div class="accordion__panel">' + escapeHtml(a.body) + "</div></div>"
+        );
+      })
+      .join("");
+  }
   accEl.addEventListener("click", function (e) {
     var btn = e.target.closest(".accordion__btn");
     if (btn) btn.parentElement.classList.toggle("open");
   });
 
-  document.getElementById("csLinks").innerHTML = ["Estruturas de Dados", "Redes", "Bancos de Dados"]
-    .map(function (l) {
-      return '<li><a href="#"><span class="name">' + l + '</span><span class="arrow">›</span></a></li>';
-    })
-    .join("");
+  function renderCsLinks() {
+    document.getElementById("csLinks").innerHTML = content()
+      .csLinks.map(function (l) {
+        return (
+          '<li><a href="#" title="' + escapeHtml(l.summary) + '"><span>' +
+          '<span class="name">' + escapeHtml(l.name) + "</span>" +
+          '<span class="summary">' + escapeHtml(l.summary) + "</span></span>" +
+          '<span class="arrow">›</span></a></li>'
+        );
+      })
+      .join("");
+  }
 
-  /* ---------------- Linguagens ---------------- */
-  var LANGS = [
-    { name: "Python", short: "PY", color: "#3776ab" },
-    { name: "JavaScript", short: "JS", color: "#f7df1e" },
-    { name: "C++", short: "C++", color: "#00599c" },
-    { name: "Java", short: "JV", color: "#e76f00" },
-    { name: "Ruby", short: "RB", color: "#cc342d" },
-    { name: "Swift", short: "SW", color: "#f05138" }
-  ];
-  document.getElementById("langs").innerHTML = LANGS.map(function (l) {
-    return (
-      '<div class="lang">' +
-      '<span class="lang__logo" style="background:' + l.color + '">' + l.short + "</span>" +
-      '<span class="lang__name">' + l.name + "</span>" +
-      '<button class="lang__btn" type="button" data-guide="' + l.name + '"></button>' +
-      "</div>"
-    );
-  }).join("");
+  function renderLangs() {
+    document.getElementById("langs").innerHTML = LANGS.map(function (l) {
+      return (
+        '<div class="lang">' +
+        '<span class="lang__logo" style="background:' + l.color + '">' + l.short + "</span>" +
+        '<span class="lang__name">' + l.name + "</span>" +
+        '<button class="lang__btn" type="button" data-guide="' + l.name + '"></button>' +
+        "</div>"
+      );
+    }).join("");
+  }
 
   /* ---------------- Metas ---------------- */
-  var TASKS = [
-    "Terminar o guide de Python",
-    "Dominar a estrutura de dados",
-    "Revisar o capítulo sobre Redes",
-    "Praticar os desafios de Lógica"
-  ];
   var saved = JSON.parse(localStorage.getItem("dfs.tasks") || "null") || [true, true, true, false];
   var listEl = document.getElementById("checklist");
-  listEl.innerHTML = TASKS.map(function (task, i) {
-    return (
-      "<li><label><input type='checkbox' data-i='" + i + "'" + (saved[i] ? " checked" : "") +
-      " /><span>" + task + "</span></label></li>"
-    );
-  }).join("");
-
   var CIRC = 2 * Math.PI * 52;
   var fg = document.getElementById("donutFg");
   fg.style.strokeDasharray = CIRC;
+
   function renderProgress() {
+    var tasks = content().tasks;
     var done = saved.filter(Boolean).length;
-    var pct = TASKS.length ? Math.round((done / TASKS.length) * 100) : 0;
-    if (done === 3) pct = 85; // meta destacada do design
+    var pct = tasks.length ? Math.round((done / tasks.length) * 100) : 0;
+    if (done === 3) pct = 85;
     fg.style.strokeDashoffset = CIRC * (1 - pct / 100);
     document.getElementById("donutPct").textContent = pct + "%";
+  }
+  function renderTasks() {
+    listEl.innerHTML = content()
+      .tasks.map(function (task, i) {
+        return (
+          "<li><label><input type='checkbox' data-i='" + i + "'" + (saved[i] ? " checked" : "") +
+          " /><span>" + escapeHtml(task) + "</span></label></li>"
+        );
+      })
+      .join("");
+    renderProgress();
   }
   listEl.addEventListener("change", function (e) {
     if (e.target.type !== "checkbox") return;
@@ -251,12 +148,8 @@
     localStorage.setItem("dfs.tasks", JSON.stringify(saved));
     renderProgress();
   });
-  renderProgress();
 
   /* ---------------- Publicações recentes ---------------- */
-  function escapeHtml(str) {
-    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
   function loadPosts() {
     try {
       return JSON.parse(localStorage.getItem("dfs.posts") || "[]");
@@ -264,11 +157,12 @@
       return [];
     }
   }
-  function excerpt(html) {
+  function excerpt(html, max) {
     var div = document.createElement("div");
     div.innerHTML = html || "";
     var text = (div.textContent || "").trim();
-    return text.length > 180 ? text.slice(0, 180) + "…" : text;
+    var limit = max || 180;
+    return text.length > limit ? text.slice(0, limit) + "…" : text;
   }
   function fmtDate(ts) {
     if (!ts) return "";
@@ -280,17 +174,20 @@
   }
   var recentEl = document.getElementById("recentPosts");
   var recentEmpty = document.getElementById("recentEmpty");
-  function renderRecent() {
-    var posts = loadPosts().filter(function (p) {
+  function publishedPosts() {
+    return loadPosts().filter(function (p) {
       return p.state === "published";
     });
+  }
+  function renderRecent() {
+    var posts = publishedPosts();
     recentEmpty.classList.toggle("hidden", posts.length > 0);
     recentEl.innerHTML = posts
       .slice(0, 6)
       .map(function (p) {
         return (
           '<article class="postcard">' +
-          '<h3>' + escapeHtml(p.title) + "</h3>" +
+          "<h3>" + escapeHtml(p.title) + "</h3>" +
           '<p class="postcard__meta">' + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
           '<p class="postcard__text">' + escapeHtml(excerpt(p.html)) + "</p>" +
           "</article>"
@@ -298,25 +195,128 @@
       })
       .join("");
   }
-  renderRecent();
   window.addEventListener("storage", renderRecent);
 
   /* ---------------- Tópicos ---------------- */
-  var TOPICS = [
-    { title: "Estruturas & Algoritmos", links: ["Resumos de Estruturas de Dados", "Guia de Algoritmos Populares", "Conceitos Chave de Computação"] },
-    { title: "Ciências Exatas", links: ["Resumos de Álgebra Linear", "Guia de Física Moderna", "Conceitos Chave de Química"] },
-    { title: "Humanas & Letras", links: ["Resumos de História Contemporânea", "Guia de Literatura Brasileira", "Conceitos Chave de Redação"] }
-  ];
-  document.getElementById("topics").innerHTML = TOPICS.map(function (c) {
-    return (
-      '<div class="topics__col"><h3>' + c.title + "</h3>" +
-      c.links.map(function (l) { return '<a href="#">' + l + "</a>"; }).join("") +
-      "</div>"
-    );
-  }).join("");
+  function renderTopics() {
+    document.getElementById("topics").innerHTML = content()
+      .topics.map(function (c) {
+        return (
+          '<div class="topics__col"><h3>' + escapeHtml(c.title) + "</h3>" +
+          c.links
+            .map(function (l) {
+              return '<a href="#">' + escapeHtml(l) + "</a>";
+            })
+            .join("") +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
+  /* ---------------- Busca ---------------- */
+  var form = document.getElementById("searchForm");
+  var input = document.getElementById("searchInput");
+  var resultsSection = document.getElementById("searchResults");
+  var resultsList = document.getElementById("searchList");
+  var resultsInfo = document.getElementById("searchInfo");
+  var clearBtn = document.getElementById("searchClear");
+  var query = "";
+
+  function norm(str) {
+    return String(str || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function searchIndex() {
+    var c = content();
+    var items = [];
+    c.subjects.forEach(function (s) {
+      items.push({ group: t("col1.title"), title: s.name, text: s.tags + " — " + s.summary });
+    });
+    c.accordion.forEach(function (a) {
+      items.push({ group: t("col2.title"), title: a.title, text: a.body });
+    });
+    c.csLinks.forEach(function (l) {
+      items.push({ group: t("col2.title"), title: l.name, text: l.summary });
+    });
+    LANGS.forEach(function (l) {
+      items.push({ group: t("col3.title"), title: l.name, text: l.name + " " + t("guide") });
+    });
+    c.topics.forEach(function (col) {
+      col.links.forEach(function (l) {
+        items.push({ group: t("topics.title"), title: l, text: col.title });
+      });
+    });
+    c.tasks.forEach(function (task) {
+      items.push({ group: t("goals.title"), title: task, text: "" });
+    });
+    publishedPosts().forEach(function (p) {
+      items.push({ group: t("recent.title"), title: p.title, text: excerpt(p.html, 200) });
+    });
+    return items;
+  }
+
+  function renderSearch() {
+    if (!query) {
+      resultsSection.classList.add("hidden");
+      resultsList.innerHTML = "";
+      return;
+    }
+    var q = norm(query);
+    var hits = searchIndex().filter(function (it) {
+      return norm(it.title).indexOf(q) > -1 || norm(it.text).indexOf(q) > -1;
+    });
+    resultsSection.classList.remove("hidden");
+    resultsInfo.textContent = hits.length
+      ? hits.length + " " + t("search.count") + ' "' + query + '"'
+      : t("search.empty") + ' "' + query + '"';
+    resultsList.innerHTML = hits
+      .map(function (h) {
+        return (
+          '<article class="result">' +
+          '<span class="result__group">' + escapeHtml(h.group) + "</span>" +
+          "<h3>" + escapeHtml(h.title) + "</h3>" +
+          (h.text ? '<p class="result__text">' + escapeHtml(h.text) + "</p>" : "") +
+          "</article>"
+        );
+      })
+      .join("");
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    query = input.value.trim();
+    renderSearch();
+    if (query) resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  input.addEventListener("input", function () {
+    if (!input.value.trim()) {
+      query = "";
+      renderSearch();
+    }
+  });
+  clearBtn.addEventListener("click", function () {
+    input.value = "";
+    query = "";
+    renderSearch();
+  });
+
+  /* ---------------- Render geral ---------------- */
+  function renderAll() {
+    applyI18n();
+    renderSubjects();
+    renderAccordion();
+    renderCsLinks();
+    renderLangs();
+    renderTasks();
+    renderTopics();
+    renderRecent();
+    renderSearch();
+  }
 
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  applyI18n();
-  renderRecent();
+  renderAll();
 })();
