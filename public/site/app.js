@@ -315,6 +315,7 @@
     renderTopics();
     renderRecent();
     renderSearch();
+    applyI18n();
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
