@@ -9,7 +9,6 @@
       "creator.titlePh": "Digite o Título",
       "creator.password": "Password",
       "creator.submit": "Acessar Painel",
-      "creator.hint": "Demonstração: use a senha estudo123",
       "creator.error": "Senha incorreta. Tente novamente.",
       "creator.back": "Voltar ao site",
       "practice.title": "Prática do Dia",
@@ -33,7 +32,6 @@
       "creator.titlePh": "Enter the Title",
       "creator.password": "Password",
       "creator.submit": "Access Dashboard",
-      "creator.hint": "Demo: use the password estudo123",
       "creator.error": "Wrong password. Try again.",
       "creator.back": "Back to site",
       "practice.title": "Practice of the Day",
@@ -57,7 +55,6 @@
       "creator.titlePh": "Saisissez le titre",
       "creator.password": "Password",
       "creator.submit": "Accéder au tableau",
-      "creator.hint": "Démo : utilisez le mot de passe estudo123",
       "creator.error": "Mot de passe incorrect. Réessayez.",
       "creator.back": "Retour au site",
       "practice.title": "Pratique du Jour",
@@ -106,7 +103,7 @@
 
   document.getElementById("creatorForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    if (document.getElementById("cPass").value === "estudo123") {
+    if (document.getElementById("cPass").value === "eng.g.1415") {
       sessionStorage.setItem("dfs.auth", "1");
       setAuth(true);
     } else {
