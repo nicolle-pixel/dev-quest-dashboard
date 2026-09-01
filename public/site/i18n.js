@@ -9,7 +9,7 @@ window.DFS_I18N = {
     "hero.title": "DOMINE SEU FUTURO: GUIA COMPLETO DE ESTUDOS E PROGRAMAÇÃO",
     "hero.subtitle": "Resumos organizados, snippets de código, teoria essencial e prática para todas as matérias.",
     "hero.cta1": "Comece a Aprender",
-    "hero.cta2": "Crie seu Guia",
+    
     "search.ph": "Buscar matérias, temas, linguagens...",
     "search.btn": "Buscar",
     "search.title": "Resultados da busca",
@@ -40,7 +40,7 @@ window.DFS_I18N = {
     "hero.title": "MASTER YOUR FUTURE: COMPLETE STUDY AND PROGRAMMING GUIDE",
     "hero.subtitle": "Organized summaries, code snippets, essential theory and practice for every subject.",
     "hero.cta1": "Start Learning",
-    "hero.cta2": "Build your Guide",
+    
     "search.ph": "Search subjects, topics, languages...",
     "search.btn": "Search",
     "search.title": "Search results",
@@ -71,7 +71,7 @@ window.DFS_I18N = {
     "hero.title": "MAÎTRISEZ VOTRE AVENIR : GUIDE COMPLET D'ÉTUDES ET DE PROGRAMMATION",
     "hero.subtitle": "Résumés organisés, extraits de code, théorie essentielle et pratique pour toutes les matières.",
     "hero.cta1": "Commencer à apprendre",
-    "hero.cta2": "Créez votre guide",
+    
     "search.ph": "Rechercher matières, sujets, langages...",
     "search.btn": "Rechercher",
     "search.title": "Résultats de la recherche",
