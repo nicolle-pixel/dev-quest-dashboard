@@ -15,9 +15,9 @@ window.DFS_DATA = {
       { title: "Algoritmos", body: "Ordenação, busca, recursão, programação dinâmica e algoritmos gulosos." }
     ],
     csLinks: [
-      { name: "Estruturas de Dados", summary: "Listas, pilhas, filas, árvores, grafos e tabelas hash." },
-      { name: "Redes", summary: "Modelo OSI, TCP/IP, HTTP, DNS e segurança básica." },
-      { name: "Bancos de Dados", summary: "Modelagem relacional, SQL, normalização e transações." }
+      { id: "ds", name: "Estruturas de Dados", summary: "Listas, pilhas, filas, árvores, grafos e tabelas hash." },
+      { id: "net", name: "Redes", summary: "Modelo OSI, TCP/IP, HTTP, DNS e segurança básica." },
+      { id: "db", name: "Bancos de Dados", summary: "Modelagem relacional, SQL, normalização e transações." }
     ],
     tasks: [
       "Terminar o guia de Python",
@@ -46,9 +46,9 @@ window.DFS_DATA = {
       { title: "Algorithms", body: "Sorting, searching, recursion, dynamic programming and greedy algorithms." }
     ],
     csLinks: [
-      { name: "Data Structures", summary: "Lists, stacks, queues, trees, graphs and hash tables." },
-      { name: "Networks", summary: "OSI model, TCP/IP, HTTP, DNS and basic security." },
-      { name: "Databases", summary: "Relational modeling, SQL, normalization and transactions." }
+      { id: "ds", name: "Data Structures", summary: "Lists, stacks, queues, trees, graphs and hash tables." },
+      { id: "net", name: "Networks", summary: "OSI model, TCP/IP, HTTP, DNS and basic security." },
+      { id: "db", name: "Databases", summary: "Relational modeling, SQL, normalization and transactions." }
     ],
     tasks: [
       "Finish the Python guide",
@@ -77,9 +77,9 @@ window.DFS_DATA = {
       { title: "Algorithmes", body: "Tri, recherche, récursivité, programmation dynamique et algorithmes gloutons." }
     ],
     csLinks: [
-      { name: "Structures de Données", summary: "Listes, piles, files, arbres, graphes et tables de hachage." },
-      { name: "Réseaux", summary: "Modèle OSI, TCP/IP, HTTP, DNS et sécurité de base." },
-      { name: "Bases de Données", summary: "Modélisation relationnelle, SQL, normalisation et transactions." }
+      { id: "ds", name: "Structures de Données", summary: "Listes, piles, files, arbres, graphes et tables de hachage." },
+      { id: "net", name: "Réseaux", summary: "Modèle OSI, TCP/IP, HTTP, DNS et sécurité de base." },
+      { id: "db", name: "Bases de Données", summary: "Modélisation relationnelle, SQL, normalisation et transactions." }
     ],
     tasks: [
       "Terminer le guide Python",
