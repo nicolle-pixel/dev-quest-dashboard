@@ -95,7 +95,7 @@
     document.getElementById("csLinks").innerHTML = content()
       .csLinks.map(function (l) {
         return (
-          '<li><a href="#" data-topic="' + escapeHtml(l.id) + '" title="' + escapeHtml(l.summary) + '"><span>' +
+          '<li><a href="#" title="' + escapeHtml(l.summary) + '"><span>' +
           '<span class="name">' + escapeHtml(l.name) + "</span>" +
           '<span class="summary">' + escapeHtml(l.summary) + "</span></span>" +
           '<span class="arrow">›</span></a></li>'
@@ -107,7 +107,7 @@
   function renderLangs() {
     document.getElementById("langs").innerHTML = LANGS.map(function (l) {
       return (
-        '<div class="lang" data-langname="' + escapeHtml(l.name) + '">' +
+        '<div class="lang">' +
         '<span class="lang__logo" style="background:' + l.color + '">' + l.short + "</span>" +
         '<span class="lang__name">' + l.name + "</span>" +
         '<button class="lang__btn" type="button" data-guide="' + l.name + '"></button>' +
@@ -115,73 +115,6 @@
       );
     }).join("");
   }
-
-  /* ---------------- Modal de conteúdo ---------------- */
-  var modal = document.getElementById("detailModal");
-  var modalContent = document.getElementById("detailContent");
-
-  function renderDetail(d) {
-    var html =
-      '<h2 id="detailTitle">' + escapeHtml(d.title) + "</h2>" +
-      '<p class="modal__intro">' + escapeHtml(d.intro) + "</p>" +
-      (d.sections || [])
-        .map(function (s) {
-          return (
-            '<section class="modal__section"><h3>' + escapeHtml(s.h) + "</h3><ul>" +
-            s.items
-              .map(function (i) {
-                return "<li>" + escapeHtml(i) + "</li>";
-              })
-              .join("") +
-            "</ul></section>"
-          );
-        })
-        .join("");
-    if (d.code) {
-      html +=
-        '<section class="modal__section"><h3>' + escapeHtml(t("detail.code")) + "</h3>" +
-        '<pre class="modal__code"><code>' + escapeHtml(d.code) + "</code></pre></section>";
-    }
-    modalContent.innerHTML = html;
-    modal.classList.remove("hidden");
-    document.body.classList.add("noscroll");
-  }
-
-  function closeModal() {
-    modal.classList.add("hidden");
-    document.body.classList.remove("noscroll");
-  }
-  document.getElementById("detailClose").addEventListener("click", closeModal);
-  document.getElementById("detailBackdrop").addEventListener("click", closeModal);
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeModal();
-  });
-
-  function openTopic(id) {
-    var set = (window.DFS_DETAILS && (window.DFS_DETAILS[lang] || window.DFS_DETAILS.pt)) || {};
-    if (set[id]) renderDetail(set[id]);
-  }
-
-  function openLangGuide(name) {
-    var g = window.DFS_LANG_GUIDES && window.DFS_LANG_GUIDES[name];
-    if (!g) return;
-    var loc = g[lang] || g.pt;
-    renderDetail({ title: name + " — " + t("guide"), intro: loc.intro, sections: loc.sections, code: g.code });
-  }
-
-  document.getElementById("csLinks").addEventListener("click", function (e) {
-    var a = e.target.closest("a[data-topic]");
-    if (!a) return;
-    e.preventDefault();
-    openTopic(a.getAttribute("data-topic"));
-  });
-
-  document.getElementById("langs").addEventListener("click", function (e) {
-    var card = e.target.closest(".lang");
-    if (!card) return;
-    openLangGuide(card.getAttribute("data-langname"));
-  });
-
 
   /* ---------------- Metas ---------------- */
   var saved = JSON.parse(localStorage.getItem("dfs.tasks") || "null") || [true, true, true, false];

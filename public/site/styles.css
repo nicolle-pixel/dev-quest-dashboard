@@ -312,32 +312,3 @@ label { font-size: 0.82rem; color: var(--muted); }
   .results__grid, .recent__grid { grid-template-columns: 1fr; }
   .search { flex-direction: column; }
 }
-
-/* ---------- Modal de conteúdo ---------- */
-body.noscroll { overflow: hidden; }
-.modal { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.modal.hidden { display: none; }
-.modal__backdrop { position: absolute; inset: 0; background: rgba(6, 4, 16, 0.78); backdrop-filter: blur(3px); }
-.modal__box {
-  position: relative; width: min(720px, 100%); max-height: 84vh; overflow-y: auto;
-  background: #14102a; border: 1px solid rgba(160, 130, 255, 0.28); border-radius: 18px;
-  padding: 28px 26px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-}
-.modal__close {
-  position: absolute; top: 12px; right: 14px; width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid rgba(160, 130, 255, 0.3); background: rgba(255, 255, 255, 0.06);
-  color: #fff; font-size: 20px; line-height: 1; cursor: pointer;
-}
-.modal__close:hover { background: rgba(160, 130, 255, 0.25); }
-.modal__box h2 { margin: 0 0 8px; font-size: 24px; }
-.modal__intro { margin: 0 0 18px; color: rgba(230, 226, 255, 0.78); }
-.modal__section { margin-bottom: 18px; }
-.modal__section h3 { margin: 0 0 8px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: #b39bff; }
-.modal__section ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: rgba(230, 226, 255, 0.85); }
-.modal__code {
-  margin: 0; padding: 14px 16px; border-radius: 12px; overflow-x: auto;
-  background: #0c0920; border: 1px solid rgba(160, 130, 255, 0.2);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: #d9d4ff; white-space: pre;
-}
-.lang { cursor: pointer; }
-.links a[data-topic] { cursor: pointer; }

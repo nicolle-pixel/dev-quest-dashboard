@@ -29,8 +29,6 @@ window.DFS_I18N = {
     "footer.text": "Usamos cookies para melhorar a experiência e otimizar nossos serviços. Ao continuar, você concorda com nossa",
     "footer.terms": "Termos de Serviço",
     "footer.cookieSettings": "Configurações de Cookies",
-    "footer.about": "Sobre Nós",
-    "detail.code": "Exemplo de código",
     guide: "Guia"
   },
   en: {
@@ -62,8 +60,6 @@ window.DFS_I18N = {
     "footer.text": "We use cookies to improve the experience and optimize our services. By continuing, you agree to our",
     "footer.terms": "Terms of Service",
     "footer.cookieSettings": "Cookie Settings",
-    "footer.about": "About Us",
-    "detail.code": "Code example",
     guide: "Guide"
   },
   fr: {
@@ -95,8 +91,6 @@ window.DFS_I18N = {
     "footer.text": "Nous utilisons des cookies pour améliorer l'expérience et optimiser nos services. En continuant, vous acceptez notre",
     "footer.terms": "Conditions d'Utilisation",
     "footer.cookieSettings": "Paramètres des Cookies",
-    "footer.about": "À Propos",
-    "detail.code": "Exemple de code",
     guide: "Guide"
   }
 };
