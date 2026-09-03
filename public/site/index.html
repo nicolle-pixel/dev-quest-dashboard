@@ -168,8 +168,18 @@
       <p class="footer__copy">© <span id="year"></span> Dashboard for Study</p>
     </footer>
 
+    <!-- Modal de conteúdo -->
+    <div class="modal hidden" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal__backdrop" id="detailBackdrop"></div>
+      <div class="modal__box">
+        <button class="modal__close" type="button" id="detailClose" aria-label="Fechar">×</button>
+        <div class="modal__content" id="detailContent"></div>
+      </div>
+    </div>
+
     <script src="./i18n.js"></script>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
+
   </body>
 </html>
