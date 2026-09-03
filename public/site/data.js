@@ -243,3 +243,94 @@ window.DFS_LANG_GUIDES = {
     fr: { intro: "Le langage moderne d'Apple pour iOS, macOS et plus — sûr, rapide et concis.", sections: [{ h: "Bases", items: ["Optionnels et sécurité face à nil", "Structs, classes et protocoles", "Closures et style fonctionnel"] }, { h: "Pratique", items: ["SwiftUI pour les interfaces", "Swift Package Manager", "Concurrence avec async/await"] }] }
   }
 };
+
+/* Páginas institucionais (privacidade, termos, sobre nós) */
+window.DFS_PAGES = {
+  pt: {
+    privacy: {
+      title: "Política de Privacidade",
+      intro: "Explicamos aqui quais dados o Dashboard for Study utiliza e como são tratados.",
+      sections: [
+        { h: "Dados recolhidos", items: ["Não exigimos registo nem recolhemos dados pessoais.", "Preferências (idioma, metas, cookies) ficam apenas no seu navegador.", "As publicações criadas na Área do Criador são guardadas localmente no seu dispositivo."] },
+        { h: "Cookies e armazenamento", items: ["Usamos apenas armazenamento local essencial ao funcionamento.", "Nenhum cookie de publicidade ou rastreio de terceiros é utilizado.", "Pode limpar tudo apagando os dados do site no navegador."] },
+        { h: "Os seus direitos", items: ["Acesso, correção e eliminação dos dados guardados localmente.", "Nenhuma informação é partilhada com terceiros.", "Dúvidas: contacto@dashboardforstudy.example"] }
+      ]
+    },
+    terms: {
+      title: "Termos de Serviço",
+      intro: "Ao utilizar o Dashboard for Study concorda com as condições abaixo.",
+      sections: [
+        { h: "Uso do serviço", items: ["O conteúdo é educativo e fornecido no estado em que se encontra.", "É proibido usar o site para fins ilícitos ou prejudiciais.", "Pode estudar, copiar e adaptar os exemplos de código para uso pessoal."] },
+        { h: "Conteúdo do utilizador", items: ["Você é responsável pelas publicações que criar.", "O administrador pode editar ou eliminar qualquer conteúdo.", "Conteúdo ofensivo ou ilegal será removido."] },
+        { h: "Limitação de responsabilidade", items: ["Não garantimos ausência de erros nos resumos.", "Não nos responsabilizamos por perdas de dados locais.", "Os termos podem ser atualizados a qualquer momento."] }
+      ]
+    },
+    about: {
+      title: "Sobre Nós",
+      intro: "O Dashboard for Study reúne resumos, teoria essencial e prática de programação num único painel.",
+      sections: [
+        { h: "Missão", items: ["Tornar o estudo organizado, visual e acessível.", "Ligar as matérias fundamentais à ciência da computação.", "Oferecer conteúdo em português, inglês e francês."] },
+        { h: "O que oferecemos", items: ["Resumos das matérias fundamentais e de computação.", "Guias por linguagem de programação com exemplos.", "Metas, checklist de estudo e publicações do criador."] },
+        { h: "Contacto", items: ["contacto@dashboardforstudy.example", "Sugestões de novos temas são bem-vindas."] }
+      ]
+    }
+  },
+  en: {
+    privacy: {
+      title: "Privacy Policy",
+      intro: "Here we explain what data Dashboard for Study uses and how it is handled.",
+      sections: [
+        { h: "Data we collect", items: ["No sign-up is required and no personal data is collected.", "Preferences (language, goals, cookies) stay in your browser.", "Posts created in the Creator Area are stored locally on your device."] },
+        { h: "Cookies and storage", items: ["Only essential local storage is used.", "No advertising or third-party tracking cookies.", "You can clear everything by deleting site data in your browser."] },
+        { h: "Your rights", items: ["Access, correct and delete locally stored data.", "No information is shared with third parties.", "Questions: contact@dashboardforstudy.example"] }
+      ]
+    },
+    terms: {
+      title: "Terms of Service",
+      intro: "By using Dashboard for Study you agree to the conditions below.",
+      sections: [
+        { h: "Use of the service", items: ["Content is educational and provided as is.", "Using the site for unlawful or harmful purposes is forbidden.", "You may study, copy and adapt code examples for personal use."] },
+        { h: "User content", items: ["You are responsible for the posts you create.", "The administrator may edit or delete any content.", "Offensive or illegal content will be removed."] },
+        { h: "Limitation of liability", items: ["We do not guarantee the summaries are error-free.", "We are not liable for loss of locally stored data.", "These terms may be updated at any time."] }
+      ]
+    },
+    about: {
+      title: "About Us",
+      intro: "Dashboard for Study brings summaries, essential theory and programming practice into one panel.",
+      sections: [
+        { h: "Mission", items: ["Make studying organized, visual and accessible.", "Connect core subjects with computer science.", "Offer content in Portuguese, English and French."] },
+        { h: "What we offer", items: ["Summaries of core subjects and computing topics.", "Programming language guides with examples.", "Goals, a study checklist and creator posts."] },
+        { h: "Contact", items: ["contact@dashboardforstudy.example", "Suggestions for new topics are welcome."] }
+      ]
+    }
+  },
+  fr: {
+    privacy: {
+      title: "Politique de Confidentialité",
+      intro: "Nous expliquons ici quelles données Dashboard for Study utilise et comment elles sont traitées.",
+      sections: [
+        { h: "Données collectées", items: ["Aucune inscription requise, aucune donnée personnelle collectée.", "Les préférences (langue, objectifs, cookies) restent dans votre navigateur.", "Les publications de l'Espace Créateur sont stockées localement."] },
+        { h: "Cookies et stockage", items: ["Seul le stockage local essentiel est utilisé.", "Aucun cookie publicitaire ou de suivi tiers.", "Vous pouvez tout effacer en supprimant les données du site."] },
+        { h: "Vos droits", items: ["Accès, correction et suppression des données locales.", "Aucune information n'est partagée avec des tiers.", "Questions : contact@dashboardforstudy.example"] }
+      ]
+    },
+    terms: {
+      title: "Conditions d'Utilisation",
+      intro: "En utilisant Dashboard for Study, vous acceptez les conditions ci-dessous.",
+      sections: [
+        { h: "Utilisation du service", items: ["Le contenu est éducatif et fourni en l'état.", "Toute utilisation illicite ou nuisible est interdite.", "Vous pouvez étudier, copier et adapter les exemples de code."] },
+        { h: "Contenu de l'utilisateur", items: ["Vous êtes responsable des publications que vous créez.", "L'administrateur peut modifier ou supprimer tout contenu.", "Tout contenu offensant ou illégal sera supprimé."] },
+        { h: "Limitation de responsabilité", items: ["Nous ne garantissons pas l'absence d'erreurs dans les résumés.", "Nous ne sommes pas responsables de la perte de données locales.", "Ces conditions peuvent être mises à jour à tout moment."] }
+      ]
+    },
+    about: {
+      title: "À Propos",
+      intro: "Dashboard for Study réunit résumés, théorie essentielle et pratique de la programmation dans un seul tableau de bord.",
+      sections: [
+        { h: "Mission", items: ["Rendre l'étude organisée, visuelle et accessible.", "Relier les matières fondamentales à l'informatique.", "Proposer du contenu en portugais, anglais et français."] },
+        { h: "Ce que nous offrons", items: ["Résumés des matières fondamentales et d'informatique.", "Guides par langage de programmation avec exemples.", "Objectifs, liste de tâches et publications du créateur."] },
+        { h: "Contact", items: ["contact@dashboardforstudy.example", "Vos suggestions de sujets sont les bienvenues."] }
+      ]
+    }
+  }
+};
