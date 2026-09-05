@@ -27,6 +27,7 @@ window.DFS_I18N = {
     "recent.empty": "Ainda não há publicações. Acesse a Área do Criador pelo ícone de chave no topo.",
     "topics.title": "Tópicos em Destaque",
     "footer.text": "Usamos cookies para melhorar a experiência e otimizar nossos serviços. Ao continuar, você concorda com nossa",
+    "footer.about": "Sobre Nós",
     "footer.terms": "Termos de Serviço",
     "footer.cookieSettings": "Configurações de Cookies",
     guide: "Guia"
@@ -58,6 +59,7 @@ window.DFS_I18N = {
     "recent.empty": "No posts yet. Open the Creator Area with the key icon at the top.",
     "topics.title": "Featured Topics",
     "footer.text": "We use cookies to improve the experience and optimize our services. By continuing, you agree to our",
+    "footer.about": "About Us",
     "footer.terms": "Terms of Service",
     "footer.cookieSettings": "Cookie Settings",
     guide: "Guide"
@@ -89,6 +91,7 @@ window.DFS_I18N = {
     "recent.empty": "Aucune publication pour le moment. Ouvrez l'Espace Créateur via l'icône de clé en haut.",
     "topics.title": "Sujets en Vedette",
     "footer.text": "Nous utilisons des cookies pour améliorer l'expérience et optimiser nos services. En continuant, vous acceptez notre",
+    "footer.about": "À Propos",
     "footer.terms": "Conditions d'Utilisation",
     "footer.cookieSettings": "Paramètres des Cookies",
     guide: "Guide"
