@@ -62,9 +62,9 @@
   /* ---------------- Painel ---------------- */
   function renderSubjects() {
     document.getElementById("subjects").innerHTML = content()
-      .subjects.map(function (s) {
+      .subjects.map(function (s, i) {
         return (
-          '<li><a href="#" title="' + escapeHtml(s.summary) + '"><span class="ico">' + s.icon + "</span>" +
+          '<li><a href="#" data-subj="' + i + '" title="' + escapeHtml(s.summary) + '"><span class="ico">' + s.icon + "</span>" +
           '<span><span class="name">' + escapeHtml(s.name) + "</span>" +
           '<span class="tags">' + escapeHtml(s.tags) + "</span>" +
           '<span class="summary">' + escapeHtml(s.summary) + "</span></span>" +
@@ -134,6 +134,12 @@
     modal.classList.remove("hidden");
     document.body.classList.add("modal-open");
   }
+  function openModalHtml(title, html) {
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modal.classList.remove("hidden");
+    document.body.classList.add("modal-open");
+  }
   function closeModal() {
     modal.classList.add("hidden");
     document.body.classList.remove("modal-open");
@@ -143,6 +149,41 @@
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeModal();
+  });
+
+  function subjectNames(index) {
+    return Object.keys(DATA).map(function (l) {
+      var s = (DATA[l].subjects || [])[index];
+      return s ? norm(s.name) : "";
+    });
+  }
+  function subjectPosts(index) {
+    var names = subjectNames(index);
+    return publishedPosts().filter(function (p) {
+      return names.indexOf(norm(p.subject || "")) > -1;
+    });
+  }
+  document.getElementById("subjects").addEventListener("click", function (e) {
+    var link = e.target.closest("a[data-subj]");
+    if (!link) return;
+    e.preventDefault();
+    var idx = Number(link.dataset.subj);
+    var subject = content().subjects[idx];
+    if (!subject) return;
+    var posts = subjectPosts(idx);
+    var html = '<p class="modal__lead">' + escapeHtml(subject.summary) + "</p>";
+    html += posts.length
+      ? posts
+          .map(function (p) {
+            return (
+              '<div class="modal__section"><h3>' + escapeHtml(p.title) + "</h3>" +
+              '<p class="postcard__meta">' + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
+              '<div class="modal__rich">' + p.html + "</div></div>"
+            );
+          })
+          .join("")
+      : '<p class="modal__empty">' + escapeHtml(t("subject.empty")) + "</p>";
+    openModalHtml(subject.name + " — " + t("subject.list"), html);
   });
 
   document.getElementById("csLinks").addEventListener("click", function (e) {
