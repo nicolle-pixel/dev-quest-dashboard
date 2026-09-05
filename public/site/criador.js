@@ -7,6 +7,10 @@
       "creator.title": "Área do Criador - Autenticação Necessária",
       "creator.titleField": "Title Field",
       "creator.titlePh": "Digite o Título",
+            "creator.subjectField": "Matéria / Disciplina",
+      "creator.subjectPh": "Ex.: Matemática",
+      "publish.subject": "Matéria",
+      "publish.noSubject": "Sem matéria",
       "creator.password": "Password",
       "creator.submit": "Acessar Painel",
       "creator.error": "Senha incorreta. Tente novamente.",
@@ -30,6 +34,10 @@
       "creator.title": "Creator Area - Authentication Required",
       "creator.titleField": "Title Field",
       "creator.titlePh": "Enter the Title",
+            "creator.subjectField": "Subject / Discipline",
+      "creator.subjectPh": "e.g. Mathematics",
+      "publish.subject": "Subject",
+      "publish.noSubject": "No subject",
       "creator.password": "Password",
       "creator.submit": "Access Dashboard",
       "creator.error": "Wrong password. Try again.",
@@ -53,6 +61,10 @@
       "creator.title": "Espace Créateur - Authentification Requise",
       "creator.titleField": "Title Field",
       "creator.titlePh": "Saisissez le titre",
+            "creator.subjectField": "Matière / Discipline",
+      "creator.subjectPh": "Ex. : Mathématiques",
+      "publish.subject": "Matière",
+      "publish.noSubject": "Sans matière",
       "creator.password": "Password",
       "creator.submit": "Accéder au tableau",
       "creator.error": "Mot de passe incorrect. Réessayez.",
@@ -167,6 +179,7 @@
   var postsEl = document.getElementById("posts");
   var emptyEl = document.getElementById("postsEmpty");
   var titleEl = document.getElementById("pTitle");
+  var subjectEl = document.getElementById("pSubject");
   var publishBtn = document.getElementById("publishBtn");
   var cancelBtn = document.getElementById("cancelBtn");
   var editingId = null;
@@ -199,6 +212,7 @@
           '<li data-id="' + p.id + '">' +
           '<div class="posts__row">' +
           "<strong>" + escapeHtml(p.title) + "</strong>" +
+          '<span class="badge badge--subject">' + escapeHtml(p.subject || t("publish.noSubject")) + "</span>" +
           '<span class="badge">' + t("publish." + p.state) + "</span>" +
           '<span class="posts__date">' + fmtDate(p.updatedAt || p.createdAt) + "</span>" +
           '<span class="posts__actions">' +
@@ -214,6 +228,7 @@
   function resetForm() {
     editingId = null;
     titleEl.value = "";
+    subjectEl.value = "";
     editor.innerHTML = "";
     document.querySelector("input[name='pstate'][value='draft']").checked = true;
     publishBtn.textContent = t("publish.save");
@@ -226,18 +241,20 @@
       titleEl.focus();
       return;
     }
+    var subject = subjectEl.value.trim();
     var state = document.querySelector("input[name='pstate']:checked").value;
     var posts = loadPosts();
     if (editingId) {
       posts = posts.map(function (p) {
         return p.id === editingId
-          ? { id: p.id, title: title, html: editor.innerHTML, state: state, createdAt: p.createdAt, updatedAt: Date.now() }
+          ? { id: p.id, title: title, subject: subject, html: editor.innerHTML, state: state, createdAt: p.createdAt, updatedAt: Date.now() }
           : p;
       });
     } else {
       posts.unshift({
         id: String(Date.now()) + Math.random().toString(16).slice(2, 6),
         title: title,
+        subject: subject,
         html: editor.innerHTML,
         state: state,
         createdAt: Date.now(),
@@ -273,6 +290,7 @@
     if (!post) return;
     editingId = id;
     titleEl.value = post.title;
+    subjectEl.value = post.subject || "";
     editor.innerHTML = post.html || "";
     document.querySelector("input[name='pstate'][value='" + post.state + "']").checked = true;
     publishBtn.textContent = t("publish.update");
@@ -286,6 +304,19 @@
     resetForm();
     renderPosts();
   });
+
+  (function fillSubjects() {
+    var dl = document.getElementById("subjectList");
+    var names = {};
+    var data = window.DFS_DATA || {};
+    Object.keys(data).forEach(function (l) {
+      (data[l].subjects || []).forEach(function (s) { names[s.name] = 1; });
+    });
+    loadPosts().forEach(function (p) { if (p.subject) names[p.subject] = 1; });
+    dl.innerHTML = Object.keys(names).map(function (n) {
+      return '<option value="' + escapeHtml(n) + '"></option>';
+    }).join("");
+  })();
 
   applyI18n();
   resetForm();
