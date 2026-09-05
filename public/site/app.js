@@ -93,9 +93,9 @@
 
   function renderCsLinks() {
     document.getElementById("csLinks").innerHTML = content()
-      .csLinks.map(function (l) {
+      .csLinks.map(function (l, i) {
         return (
-          '<li><a href="#" title="' + escapeHtml(l.summary) + '"><span>' +
+          '<li><a href="#" data-cs="' + i + '" title="' + escapeHtml(l.summary) + '"><span>' +
           '<span class="name">' + escapeHtml(l.name) + "</span>" +
           '<span class="summary">' + escapeHtml(l.summary) + "</span></span>" +
           '<span class="arrow">›</span></a></li>'
@@ -110,11 +110,64 @@
         '<div class="lang">' +
         '<span class="lang__logo" style="background:' + l.color + '">' + l.short + "</span>" +
         '<span class="lang__name">' + l.name + "</span>" +
-        '<button class="lang__btn" type="button" data-guide="' + l.name + '"></button>' +
+        '<button class="lang__btn" type="button" data-lang="' + escapeHtml(l.name) + '" data-guide="' + l.name + '"></button>' +
         "</div>"
       );
     }).join("");
   }
+
+  /* ---------------- Janela de detalhes ---------------- */
+  var modal = document.getElementById("modal");
+  var modalTitle = document.getElementById("modalTitle");
+  var modalBody = document.getElementById("modalBody");
+
+  function openModal(title, sections) {
+    modalTitle.textContent = title;
+    modalBody.innerHTML = (sections || [])
+      .map(function (s) {
+        return (
+          '<div class="modal__section"><h3>' + escapeHtml(s.title) + "</h3>" +
+          "<p>" + escapeHtml(s.text) + "</p></div>"
+        );
+      })
+      .join("");
+    modal.classList.remove("hidden");
+    document.body.classList.add("modal-open");
+  }
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.classList.remove("modal-open");
+  }
+  modal.addEventListener("click", function (e) {
+    if (e.target.dataset && e.target.dataset.close) closeModal();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+  });
+
+  document.getElementById("csLinks").addEventListener("click", function (e) {
+    var link = e.target.closest("a[data-cs]");
+    if (!link) return;
+    e.preventDefault();
+    var item = content().csLinks[Number(link.dataset.cs)];
+    if (item) openModal(item.name, item.detail);
+  });
+
+  document.getElementById("langs").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-lang]");
+    if (!btn) return;
+    var name = btn.dataset.lang;
+    var details = (content().langDetails || {})[name];
+    if (details) openModal(name + " — " + t("guide"), details);
+  });
+
+  document.querySelector(".footer").addEventListener("click", function (e) {
+    var link = e.target.closest("a[data-page]");
+    if (!link) return;
+    e.preventDefault();
+    var page = (content().pages || {})[link.dataset.page];
+    if (page) openModal(page.title, page.body);
+  });
 
   /* ---------------- Metas ---------------- */
   var saved = JSON.parse(localStorage.getItem("dfs.tasks") || "null") || [true, true, true, false];
