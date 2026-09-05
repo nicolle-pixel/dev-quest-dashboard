@@ -10,6 +10,8 @@ window.DFS_I18N = {
     "hero.subtitle": "Resumos organizados, snippets de código, teoria essencial e prática para todas as matérias.",
     "hero.cta1": "Comece a Aprender",
     
+    "subject.list": "Resumos publicados",
+    "subject.empty": "Ainda não há resumos publicados para esta matéria.",
     "search.ph": "Buscar matérias, temas, linguagens...",
     "search.btn": "Buscar",
     "search.title": "Resultados da busca",
@@ -42,6 +44,8 @@ window.DFS_I18N = {
     "hero.subtitle": "Organized summaries, code snippets, essential theory and practice for every subject.",
     "hero.cta1": "Start Learning",
     
+    "subject.list": "Published summaries",
+    "subject.empty": "No published summaries for this subject yet.",
     "search.ph": "Search subjects, topics, languages...",
     "search.btn": "Search",
     "search.title": "Search results",
@@ -73,6 +77,8 @@ window.DFS_I18N = {
     "hero.title": "MAÎTRISEZ VOTRE AVENIR : GUIDE COMPLET D'ÉTUDES ET DE PROGRAMMATION",
     "hero.subtitle": "Résumés organisés, extraits de code, théorie essentielle et pratique pour toutes les matières.",
     "hero.cta1": "Commencer à apprendre",
+    "subject.list": "Résumés publiés",
+    "subject.empty": "Aucun résumé publié pour cette matière.",
     
     "search.ph": "Rechercher matières, sujets, langages...",
     "search.btn": "Rechercher",
