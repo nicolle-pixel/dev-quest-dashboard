@@ -325,3 +325,10 @@ label { font-size: 0.82rem; color: var(--muted); }
 .modal__section h3 { margin: 0 0 4px; font-size: 0.95rem; color: var(--primary-2); }
 .modal__section p { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 body.modal-open { overflow: hidden; }
+
+/* Matéria nas publicações e resumos no modal */
+.badge--subject { background: rgba(147, 97, 255, 0.18); color: #c9b4ff; }
+.modal__lead { color: var(--muted, #9aa3b2); margin: 0 0 14px; }
+.modal__empty { color: var(--muted, #9aa3b2); }
+.modal__rich { line-height: 1.6; }
+.modal__rich img { max-width: 100%; }
