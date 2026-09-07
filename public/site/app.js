@@ -173,17 +173,26 @@
     var posts = subjectPosts(idx);
     var html = '<p class="modal__lead">' + escapeHtml(subject.summary) + "</p>";
     html += posts.length
-      ? posts
+      ? '<ul class="summarylist">' +
+        posts
           .map(function (p) {
             return (
-              '<div class="modal__section"><h3>' + escapeHtml(p.title) + "</h3>" +
-              '<p class="postcard__meta">' + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
-              '<div class="modal__rich">' + p.html + "</div></div>"
+              "<li>" +
+              '<button class="summarylist__btn" type="button"><span class="summarylist__caret">›</span>' +
+              escapeHtml(p.title) +
+              '<span class="summarylist__date">' + fmtDate(p.updatedAt || p.createdAt) + "</span></button>" +
+              '<div class="summarylist__body">' + p.html + "</div></li>"
             );
           })
-          .join("")
+          .join("") +
+        "</ul>"
       : '<p class="modal__empty">' + escapeHtml(t("subject.empty")) + "</p>";
     openModalHtml(subject.name + " — " + t("subject.list"), html);
+  });
+
+  modalBody.addEventListener("click", function (e) {
+    var btn = e.target.closest(".summarylist__btn");
+    if (btn) btn.parentElement.classList.toggle("open");
   });
 
   document.getElementById("csLinks").addEventListener("click", function (e) {
