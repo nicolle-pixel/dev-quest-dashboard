@@ -271,7 +271,12 @@
   postsEl.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-act]");
     if (!btn) return;
-    var id = btn.closest("li").dataset.id;
+    var li = btn.closest("li");
+    var id = li.dataset.id;
+    if (btn.dataset.act === "toggle") {
+      li.classList.toggle("open");
+      return;
+    }
     var posts = loadPosts();
     if (btn.dataset.act === "delete") {
       if (!confirm(t("publish.confirm"))) return;
