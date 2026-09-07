@@ -211,7 +211,7 @@
         return (
           '<li data-id="' + p.id + '">' +
           '<div class="posts__row">' +
-          "<strong>" + escapeHtml(p.title) + "</strong>" +
+          '<button class="posts__toggle" type="button" data-act="toggle"><span class="posts__caret">›</span>' + escapeHtml(p.title) + "</button>" +
           '<span class="badge badge--subject">' + escapeHtml(p.subject || t("publish.noSubject")) + "</span>" +
           '<span class="badge">' + t("publish." + p.state) + "</span>" +
           '<span class="posts__date">' + fmtDate(p.updatedAt || p.createdAt) + "</span>" +
@@ -271,7 +271,12 @@
   postsEl.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-act]");
     if (!btn) return;
-    var id = btn.closest("li").dataset.id;
+    var li = btn.closest("li");
+    var id = li.dataset.id;
+    if (btn.dataset.act === "toggle") {
+      li.classList.toggle("open");
+      return;
+    }
     var posts = loadPosts();
     if (btn.dataset.act === "delete") {
       if (!confirm(t("publish.confirm"))) return;

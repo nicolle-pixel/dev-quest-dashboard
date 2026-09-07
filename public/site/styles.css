@@ -305,6 +305,22 @@ label { font-size: 0.82rem; color: var(--muted); }
 /* Lista de posts na área do criador */
 .posts__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .posts__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.posts__toggle { flex: 1 1 180px; text-align: left; background: none; border: 0; color: var(--text); font: inherit; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.posts__caret { color: var(--primary-2); transition: transform 0.18s ease; }
+li.open .posts__caret { transform: rotate(90deg); }
+.posts__body { display: none; margin-top: 10px; line-height: 1.6; }
+.posts__body img { max-width: 100%; }
+li.open .posts__body { display: block; }
+.summarylist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.summarylist > li { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.summarylist__btn { width: 100%; text-align: left; background: none; border: 0; color: var(--text); font: inherit; font-weight: 600; padding: 12px 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.summarylist__caret { color: var(--primary-2); transition: transform 0.18s ease; }
+.summarylist > li.open .summarylist__caret { transform: rotate(90deg); }
+.summarylist__date { margin-left: auto; font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+.summarylist__body { display: none; padding: 0 14px 14px; line-height: 1.6; }
+.summarylist__body img { max-width: 100%; }
+.summarylist > li.open .summarylist__body { display: block; }
+.postcard { cursor: pointer; }
 .posts__actions { margin-left: auto; display: flex; gap: 8px; }
 .posts__date { font-size: 0.75rem; color: var(--muted); }
 
