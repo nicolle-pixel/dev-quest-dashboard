@@ -211,7 +211,7 @@
         return (
           '<li data-id="' + p.id + '">' +
           '<div class="posts__row">' +
-          "<strong>" + escapeHtml(p.title) + "</strong>" +
+          '<button class="posts__toggle" type="button" data-act="toggle"><span class="posts__caret">›</span>' + escapeHtml(p.title) + "</button>" +
           '<span class="badge badge--subject">' + escapeHtml(p.subject || t("publish.noSubject")) + "</span>" +
           '<span class="badge">' + t("publish." + p.state) + "</span>" +
           '<span class="posts__date">' + fmtDate(p.updatedAt || p.createdAt) + "</span>" +
