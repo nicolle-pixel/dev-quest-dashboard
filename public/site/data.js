@@ -139,7 +139,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Chemistry", tags: "General | Organic", summary: "Periodic table, bonding, stoichiometry and organic reactions." },
       { icon: "🧬", name: "Biology", tags: "Cells | Genetics", summary: "Cytology, Mendelian genetics, evolution and ecology." },
       { icon: "🏛", name: "History", tags: "General | Contemporary", summary: "Modern age, revolutions, world wars and Brazilian history." },
-      { icon: "📚", name: "Literature", tags: "Movements | Writing", summary: "Literary movements, text analysis and essay writing techniques." }
+      { icon: "📚", name: "Literature", tags: "Movements | Writing", summary: "Literary movements, text analysis and essay writing techniques." },
+      { icon: "🌍", name: "Geography", tags: "Physical | Human", summary: "Physical geography, climates, landforms, population and world political geography." }
     ],
     accordion: [
       { title: "Fundamentals", body: "Data representation, computer architecture, complexity and abstraction." },
