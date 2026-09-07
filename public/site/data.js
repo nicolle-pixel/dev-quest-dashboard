@@ -7,7 +7,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Química", tags: "Geral | Orgânica", summary: "Tabela periódica, ligações, estequiometria e reações orgânicas." },
       { icon: "🧬", name: "Biologia", tags: "Células | Genética", summary: "Citologia, genética mendeliana, evolução e ecologia." },
       { icon: "🏛", name: "História", tags: "Geral | Contemporânea", summary: "Idade Moderna, revoluções, guerras mundiais e história do Brasil." },
-      { icon: "📚", name: "Literatura", tags: "Escolas | Redação", summary: "Movimentos literários, análise de texto e técnicas de redação." }
+      { icon: "📚", name: "Literatura", tags: "Escolas | Redação", summary: "Movimentos literários, análise de texto e técnicas de redação." },
+      { icon: "🌍", name: "Geografia", tags: "Física | Humana", summary: "Geografia física, climas, relevo, população e geografia política mundial." }
     ],
     accordion: [
       { title: "Fundamentos", body: "Representação de dados, arquitetura de computadores, complexidade e abstração." },
