@@ -289,15 +289,22 @@
       .slice(0, 6)
       .map(function (p) {
         return (
-          '<article class="postcard">' +
+          '<article class="postcard" data-post="' + escapeHtml(p.id) + '" role="button" tabindex="0">' +
           "<h3>" + escapeHtml(p.title) + "</h3>" +
-          '<p class="postcard__meta">' + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
-          '<p class="postcard__text">' + escapeHtml(excerpt(p.html)) + "</p>" +
+          '<p class="postcard__meta">' + (p.subject ? escapeHtml(p.subject) + " · " : "") + fmtDate(p.updatedAt || p.createdAt) + "</p>" +
           "</article>"
         );
       })
       .join("");
   }
+  recentEl.addEventListener("click", function (e) {
+    var card = e.target.closest("article[data-post]");
+    if (!card) return;
+    var post = publishedPosts().filter(function (p) {
+      return String(p.id) === card.dataset.post;
+    })[0];
+    if (post) openModalHtml(post.title, '<p class="postcard__meta">' + fmtDate(post.updatedAt || post.createdAt) + '</p><div class="modal__rich">' + post.html + "</div>");
+  });
   window.addEventListener("storage", renderRecent);
 
   /* ---------------- Tópicos ---------------- */
