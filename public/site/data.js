@@ -7,7 +7,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Química", tags: "Geral | Orgânica", summary: "Tabela periódica, ligações, estequiometria e reações orgânicas." },
       { icon: "🧬", name: "Biologia", tags: "Células | Genética", summary: "Citologia, genética mendeliana, evolução e ecologia." },
       { icon: "🏛", name: "História", tags: "Geral | Contemporânea", summary: "Idade Moderna, revoluções, guerras mundiais e história do Brasil." },
-      { icon: "📚", name: "Literatura", tags: "Escolas | Redação", summary: "Movimentos literários, análise de texto e técnicas de redação." }
+      { icon: "📚", name: "Literatura", tags: "Escolas | Redação", summary: "Movimentos literários, análise de texto e técnicas de redação." },
+      { icon: "🌍", name: "Geografia", tags: "Física | Humana", summary: "Geografia física, climas, relevo, população e geografia política mundial." }
     ],
     accordion: [
       { title: "Fundamentos", body: "Representação de dados, arquitetura de computadores, complexidade e abstração." },
@@ -138,7 +139,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Chemistry", tags: "General | Organic", summary: "Periodic table, bonding, stoichiometry and organic reactions." },
       { icon: "🧬", name: "Biology", tags: "Cells | Genetics", summary: "Cytology, Mendelian genetics, evolution and ecology." },
       { icon: "🏛", name: "History", tags: "General | Contemporary", summary: "Modern age, revolutions, world wars and Brazilian history." },
-      { icon: "📚", name: "Literature", tags: "Movements | Writing", summary: "Literary movements, text analysis and essay writing techniques." }
+      { icon: "📚", name: "Literature", tags: "Movements | Writing", summary: "Literary movements, text analysis and essay writing techniques." },
+      { icon: "🌍", name: "Geography", tags: "Physical | Human", summary: "Physical geography, climates, landforms, population and world political geography." }
     ],
     accordion: [
       { title: "Fundamentals", body: "Data representation, computer architecture, complexity and abstraction." },
@@ -269,7 +271,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Chimie", tags: "Générale | Organique", summary: "Tableau périodique, liaisons, stœchiométrie et réactions organiques." },
       { icon: "🧬", name: "Biologie", tags: "Cellules | Génétique", summary: "Cytologie, génétique mendélienne, évolution et écologie." },
       { icon: "🏛", name: "Histoire", tags: "Générale | Contemporaine", summary: "Époque moderne, révolutions, guerres mondiales et histoire du Brésil." },
-      { icon: "📚", name: "Littérature", tags: "Courants | Rédaction", summary: "Courants littéraires, analyse de texte et techniques de rédaction." }
+      { icon: "📚", name: "Littérature", tags: "Courants | Rédaction", summary: "Courants littéraires, analyse de texte et techniques de rédaction." },
+      { icon: "🌍", name: "Géographie", tags: "Physique | Humaine", summary: "Géographie physique, climats, relief, population et géographie politique mondiale." }
     ],
     accordion: [
       { title: "Fondamentaux", body: "Représentation des données, architecture des ordinateurs, complexité et abstraction." },
