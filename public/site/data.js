@@ -271,7 +271,8 @@ window.DFS_DATA = {
       { icon: "🧪", name: "Chimie", tags: "Générale | Organique", summary: "Tableau périodique, liaisons, stœchiométrie et réactions organiques." },
       { icon: "🧬", name: "Biologie", tags: "Cellules | Génétique", summary: "Cytologie, génétique mendélienne, évolution et écologie." },
       { icon: "🏛", name: "Histoire", tags: "Générale | Contemporaine", summary: "Époque moderne, révolutions, guerres mondiales et histoire du Brésil." },
-      { icon: "📚", name: "Littérature", tags: "Courants | Rédaction", summary: "Courants littéraires, analyse de texte et techniques de rédaction." }
+      { icon: "📚", name: "Littérature", tags: "Courants | Rédaction", summary: "Courants littéraires, analyse de texte et techniques de rédaction." },
+      { icon: "🌍", name: "Géographie", tags: "Physique | Humaine", summary: "Géographie physique, climats, relief, population et géographie politique mondiale." }
     ],
     accordion: [
       { title: "Fondamentaux", body: "Représentation des données, architecture des ordinateurs, complexité et abstraction." },
